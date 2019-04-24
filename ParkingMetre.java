@@ -29,7 +29,7 @@ public class ParkingMetre
 	@param locationIn The location of the metre.
 	@param parkingRateIn The cost of parking at the metre (in $/minute).
 	*/
-	public void ParkingMetre(String location, double parkingRate)
+	public ParkingMetre(String location, double parkingRate)
 	{
 	this.location = location;
 	this.parkingRate = parkingRate;
@@ -63,8 +63,9 @@ public class ParkingMetre
 	This method parks at a metre for a certain period of time.
 	@param time The time parked at the metre (in minutes).
 	*/
-	public void setTime(double timeIn) {
-		time += timeIn;
+	public void park(double timeParked) {
+		time -= timeParked;
+		
 	}
 	
 	/**
@@ -72,5 +73,9 @@ public class ParkingMetre
 	@param moneyAdded Amount of money added to the metre.
 	*/
 	public void addMoney(double moneyAdded) {
+		time = (moneyAdded / parkingRate);
 	}	
+	
+	
 } 
+
